@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<html>
+	<head>
+	<title>Verb of the Day</title>
+	<link rel="stylesheet" href="{% static 'css/verbs.css' %}">
+	</head>
+
+	<body>
+		<h3>Translate: {{ random_verb.english }}</h3>
+		<p>Your answer: <input type="text" name="guess"></p>
+		{% for p in possible_answers %}
+		<p>
+		{% autoescape off %}
+		<div title="{{p.french}}"><answer>Check answer (hover)</answer></div>
+		{% endautoescape %}
+		<a href="{% url 'conjugation' verb_pk=p.id %}">Practice conjugating this verb</a>
+		</p>
+		{% endfor %}
+		<a href="{% url 'randomizer'  %}">Try another verb</a>
+	</body>
