@@ -43,3 +43,8 @@ def conjugation(request, verb_pk):
     return render(request, 'verbs/conjugation.html', {'pr': pronoun, 'verb': verb, 'verb_url':
         verb_url})
 
+
+def memorize(request):
+    ids = [random.randint(1, 740) for _ in range(1, 21)]
+    verbs = models.FrenchVerb.objects.filter(id__in=ids)
+    return render(request, 'verbs/memorize.html', {'verbs': verbs})
