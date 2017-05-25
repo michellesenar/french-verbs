@@ -1,11 +1,6 @@
-{% load staticfiles %}
-<html>
-	<head>
-	<title>Verb of the Day</title>
-	<link rel="stylesheet" href="{% static 'css/verbs.css' %}">
-	</head>
+{% extends 'verbs/base.html' %}
 
-	<body>
+{% block content %}
 		<h3>Translate: {{ random_verb.english }}</h3>
 		<p>Your answer: <input type="text" name="guess"></p>
 		{% for p in possible_answers %}
@@ -17,4 +12,4 @@
 		</p>
 		{% endfor %}
 		<a href="{% url 'randomizer'  %}">Try another verb</a>
-	</body>
+{% endblock %}

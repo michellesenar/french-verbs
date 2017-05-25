@@ -1,0 +1,15 @@
+{% load staticfiles %}
+
+<html>
+	<head>
+	<title>Verb of the Day</title>
+	<link rel="stylesheet" href="{% static 'css/verbs.css' %}">
+	<link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+
+	</head>
+
+	<body>
+	    {% block content %}
+	    {% endblock %}
+		<h5><a href="{% url 'home'  %}">Home</a></h5>
+	</body>

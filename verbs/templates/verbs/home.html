@@ -1,8 +1,10 @@
-<html>
-	    <h1>French Verb Quiz</h1>
+{% extends 'verbs/base.html' %}
 
-	    <h3>I made this site to help with memorizing common French verbs.</h3>
-	        <p><a href="{% url 'about' %}">About</a></p>
-		<p><a href="{% url 'randomizer' %}">French Verb Randomizer</a></p>
-		<p><a href="{% url 'memorize' %}">Memorizing</a></p>
-</html>
+{% block content %}
+	<h1>French Verb Quiz</h1>
+
+	<h3>I made this site to help with memorizing common French verbs.</h3>
+	<p><a href="{% url 'about' %}">About</a></p>
+	<p><a href="{% url 'randomizer' %}">French Verb Randomizer</a></p>
+	<p><a href="{% url 'memorize' %}">Memorizing</a></p>
+{% endblock %}

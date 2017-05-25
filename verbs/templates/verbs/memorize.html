@@ -1,14 +1,9 @@
-{% load staticfiles %}
-<html>
-	<head>
-	<title>Batch memorize</title>
-	<link rel="stylesheet" href="{% static 'css/verbs.css' %}">
-	</head>
+{% extends 'verbs/base.html' %}
 
-	<body>
+{% block content %}
 		{% for v in verbs %}
-		<p> {{ v.english }} : {{ v.french }} : <input type="text" value='Practice using'> : <a href="{% url 'conjugation' verb_pk=v.id %}" target="_blank">Conjugate</a></p>
+		<p> <b>{{ v.english }}</b> : {{ v.french }} : <input type="text" value='Practice using'> : <a href="{% url 'conjugation' verb_pk=v.id %}" target="_blank">Conjugate</a></p>
 		{% endfor %}
 		<p><a href="{% url 'memorize'  %}">View more verbs</a></p>
 		<p><a href="{% url 'randomizer'  %}">Quiz yourself</a></p>
-	</body>
+{% endblock %}
