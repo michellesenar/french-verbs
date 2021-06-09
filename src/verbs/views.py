@@ -5,19 +5,19 @@ from django.shortcuts import render
 from . import models
 
 PRONOUNS = [
-        ('I', 'je'),
-        ('you', 'tu'),
-        ('he', 'il'),
-        ('she', 'elle'),
-        ('we', 'nous'),
-        ('you guys', 'vous'),
-        ('they', 'ils'),
-        ('they', 'elles'),
+    ("I", "je"),
+    ("you", "tu"),
+    ("he", "il"),
+    ("she", "elle"),
+    ("we", "nous"),
+    ("you guys", "vous"),
+    ("they", "ils"),
+    ("they", "elles"),
 ]
 
 
 def home(request):
-    return render(request, 'verbs/home.html', {})
+    return render(request, "verbs/home.html", {})
 
 
 def randomizer(request):
@@ -26,25 +26,31 @@ def randomizer(request):
     english = random_verb.english
 
     possible_answers = models.FrenchVerb.objects.filter(english=english).all()
-    return render(request, 'verbs/randomizer.html', {'random_verb':
-        random_verb, 'possible_answers': possible_answers})
+    return render(
+        request,
+        "verbs/randomizer.html",
+        {"random_verb": random_verb, "possible_answers": possible_answers},
+    )
 
 
 def about(request):
-    return render(request, 'verbs/about.html', {})
+    return render(request, "verbs/about.html", {})
 
 
 def conjugation(request, verb_pk):
     verb = models.FrenchVerb.objects.get(id=verb_pk)
-    BASE_URL = 'http://www.wordreference.com/conj/FrVerbs.aspx?v={}'
+    BASE_URL = "http://www.wordreference.com/conj/FrVerbs.aspx?v={}"
     verb_url = BASE_URL.format(verb.french)
 
     pronoun = random.choice(PRONOUNS)
-    return render(request, 'verbs/conjugation.html', {'pr': pronoun, 'verb': verb, 'verb_url':
-        verb_url})
+    return render(
+        request,
+        "verbs/conjugation.html",
+        {"pr": pronoun, "verb": verb, "verb_url": verb_url},
+    )
 
 
 def memorize(request):
     ids = [random.randint(1, 740) for _ in range(1, 21)]
     verbs = models.FrenchVerb.objects.filter(id__in=ids)
-    return render(request, 'verbs/memorize.html', {'verbs': verbs})
+    return render(request, "verbs/memorize.html", {"verbs": verbs})

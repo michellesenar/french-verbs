@@ -16,5 +16,5 @@ application = get_wsgi_application()
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "frverbs.settings")
 
-application = WhiteNoise(application, root='/static/')
-application.add_files('/src/verbs/static/', prefix='more-files/')
+application = WhiteNoise(application, root="/static/")
+application.add_files("/src/verbs/static/", prefix="more-files/")
