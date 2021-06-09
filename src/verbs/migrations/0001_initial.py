@@ -9,17 +9,24 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='FrenchVerb',
+            name="FrenchVerb",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('english', models.CharField(max_length=40)),
-                ('french', models.CharField(max_length=40)),
-                ('french_ascii', models.CharField(max_length=40)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("english", models.CharField(max_length=40)),
+                ("french", models.CharField(max_length=40)),
+                ("french_ascii", models.CharField(max_length=40)),
             ],
         ),
     ]

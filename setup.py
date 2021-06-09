@@ -3,12 +3,14 @@ from setuptools import find_packages, setup
 requirements = [
     "Django",
     "dj_database_url",
+    "gunicorn",
+    "psycopg2",
     "python-dotenv",
-    "whitenoise"
+    "whitenoise",
 ]
 
 setup(
-    name="https://github.com/michellesenar/french-verbs",
+    name="french-verbs",
     version="0.2",
     description="Practice French Verbs conjugation",
     url="https://github.com/michellesenar/french-verbs",
@@ -18,8 +20,6 @@ setup(
     packages=find_packages("src"),
     package_dir={"": "src"},
     entry_points={
-        "console_scripts": [
-            "manage = manage:main"
-        ],
+        "console_scripts": ["manage = manage:main"],
     },
 )
