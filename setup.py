@@ -4,6 +4,7 @@ requirements = [
     "Django",
     "dj_database_url",
     "gunicorn",
+    "psycopg2",
     "python-dotenv",
     "whitenoise"
 ]
