@@ -3,6 +3,7 @@ from setuptools import find_packages, setup
 requirements = [
     "Django",
     "dj_database_url",
+    "gunicorn",
     "python-dotenv",
     "whitenoise"
 ]
